@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
-const NavBar = () => {
+const NavBar = ({ user, logout }) => {
     return (
         <nav className='navbar navbar-expand-lg navbar-dark bg-dark justify-content-between'>
             <form className='form-inline'>
@@ -12,12 +12,27 @@ const NavBar = () => {
                 <li className='nav-item'>
                     <Link to='/' className='nav-link'>Home</Link>
                 </li>
-                <li className='nav-item'>
-                    <Link to='/register' className='nav-link'>Registration</Link>
-                </li>
-                <li className='nav-item'>
-                    <Link to='/login' className='nav-link'>Log In</Link>
-                </li>
+                {user.token ? 
+                    null : (
+                    <li className='nav-item'>
+                        <Link to='/register' className='nav-link'>
+                            Registration
+                        </Link>
+                    </li>
+                )};
+                {user.token ? 
+                    null : (
+                    <li className='nav-item'>
+                        <Link to='/login' className='nav-link'>
+                            Log In
+                        </Link>
+                    </li>
+                )};
+                {user.token ? (
+                    <button className='btn btn-warning' onClick={logout}>
+                        Log Out
+                    </button>
+                ) : null};
             </ul>
         </nav>
     );

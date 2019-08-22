@@ -1,48 +1,38 @@
-import React, { Component } from "react";
-import { Redirect } from "react-router-dom";
+import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 
-class Registration extends Component {
+class Login extends Component {
     state = {
-        username: '',
         email: '',
-        rehashedPassword: ''
+        hashedPassword: ''
     };
 
     onChange = event => {
         const { name, value } = event.target;
-        this.setState({ [name]: value});
-    };
-
+        this.setState({ [name]: value });
+      };
+    
     onSubmit = event => {
         event.preventDefault();
         // eslint-disable-next-line
         for (const key in this.state) {
-            if (this.state[key].length < 1) {
-                console.log('All fields are reuired');
-                return false;
-            }
+          if (this.state[key].length < 1) {
+            console.log("All fields required");
+            return false;
+          }
         }
-        this.props.registerUser(this.state);
+        this.props.loginUser(this.state);
     };
 
     render() {
-        const { isRegistered } = this.props;
+        const { user } = this.props;
 
-        if (isRegistered) {
-            return <Redirect to='/login'/>
+        if (user.token) {
+            return <Redirect to='/'/>;
         }
 
-        return (
+        return(
             <form className='registration-form col-6 ml-auto mr-auto' onSubmit={this.onSubmit}>
-                <div className='form-group'>
-                    <label htmlFor=''>User Name</label>
-                    <input
-                        type='text'
-                        name='username'
-                        className='form-control'
-                        onChange={this.onChange}
-                    />
-                </div>
                 <div className='form-group'>
                     <label htmlFor=''>E-mail</label>
                     <input
@@ -56,17 +46,18 @@ class Registration extends Component {
                     <label htmlFor=''>Password</label>
                     <input
                         type='password'
-                        name='rehashedPassword'
+                        name='hashedPassword'
                         className='form-control'
                         onChange={this.onChange}
                     />
                 </div>
                 <button className='btn btn-success float-right mt-3' type='submit'>
-                    Register
+                    Log In
                 </button>
             </form>
         );
-    };
-};
+    }
 
-export default Registration;
+}
+
+export default Login;
