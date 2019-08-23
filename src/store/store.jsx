@@ -15,7 +15,7 @@ axios.interceptors.response.use(
     error => {
         let message,
         title = 'Something went wrong';
-
+        
         if (error.response.satuts === 401) {
             localStorage.removeItem('user');
             store.dispatch({

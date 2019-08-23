@@ -16,7 +16,7 @@ const registerUser = user => dispatch => {
                         title: 'Registration success',
                         message: 'Please log in to continue',
                         position: 'tc',
-                        autoDismiss: 10
+                        autoDismiss: 7
                     })
                 );
             }

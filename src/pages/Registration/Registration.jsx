@@ -18,7 +18,6 @@ class Registration extends Component {
         // eslint-disable-next-line
         for (const key in this.state) {
             if (this.state[key].length < 1) {
-                console.log('All fields are reuired');
                 return false;
             }
         }
@@ -41,6 +40,7 @@ class Registration extends Component {
                         name='username'
                         className='form-control'
                         onChange={this.onChange}
+                        required
                     />
                 </div>
                 <div className='form-group'>
@@ -50,6 +50,7 @@ class Registration extends Component {
                         name='email'
                         className='form-control'
                         onChange={this.onChange}
+                        required
                     />
                 </div>
                 <div className='form-group'>
@@ -59,6 +60,7 @@ class Registration extends Component {
                         name='rehashedPassword'
                         className='form-control'
                         onChange={this.onChange}
+                        required
                     />
                 </div>
                 <button className='btn btn-success float-right mt-3' type='submit'>

@@ -18,11 +18,12 @@ const loginUser = user => dispatch => {
                         title: 'Log In success',
                         message: 'Nice to see you again',
                         position: 'tc',
-                        autoDismiss: 10
+                        autoDismiss: 7
                     })
                 );
             }
-        }).catch(err => {
+        })
+        .catch(err => {
             dispatch(
                 error({
                     title: 'Log In failed, check email and password',

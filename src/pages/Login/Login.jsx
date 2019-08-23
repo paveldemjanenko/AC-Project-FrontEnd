@@ -40,6 +40,7 @@ class Login extends Component {
                         name='email'
                         className='form-control'
                         onChange={this.onChange}
+                        required
                     />
                 </div>
                 <div className='form-group'>
@@ -49,6 +50,7 @@ class Login extends Component {
                         name='hashedPassword'
                         className='form-control'
                         onChange={this.onChange}
+                        required
                     />
                 </div>
                 <button className='btn btn-success float-right mt-3' type='submit'>
