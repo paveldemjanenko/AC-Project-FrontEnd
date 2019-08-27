@@ -1,14 +1,21 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { ButtonContainer, NavWrapper } from '../styles/styles';
 
 const NavBar = ({ user, logout }) => {
     return (
-        <nav className='navbar navbar-expand-lg navbar-dark bg-dark justify-content-between'>
-            <form className='form-inline'>
-                <input className='form-control mr-sm-2' type='search' placeholder='Search' aria-label='Search'/>
-                <button className='btn btn-outline-success my-2 my-sm-0' type='submit'>Hit me!</button>
-            </form>
+        <NavWrapper className='navbar navbar-expand-sm navbar-dark px-sm-5'>
+            {/* 
+                    https://www.iconfinder.com/icons/1243689/call_phone_icon
+                    Creative Commons (Attribution 3.0 Unported);
+                    https://www.iconfinder.com/Makoto_msk 
+                */}
             <ul className='navbar-nav'>
+                {user.token ? (
+                    <button className='btn btn-logout' onClick={logout}>
+                        log out
+                    </button>
+                ) : null}
                 <li className='nav-item'>
                     <Link to='/' className='nav-link'>Home</Link>
                 </li>
@@ -19,7 +26,7 @@ const NavBar = ({ user, logout }) => {
                             Registration
                         </Link>
                     </li>
-                )};
+                )}
                 {user.token ? 
                     null : (
                     <li className='nav-item'>
@@ -27,14 +34,17 @@ const NavBar = ({ user, logout }) => {
                             Log In
                         </Link>
                     </li>
-                )};
-                {user.token ? (
-                    <button className='btn btn-warning' onClick={logout}>
-                        Log Out
-                    </button>
-                ) : null};
+                )}
             </ul>
-        </nav>
+            <Link to='/cart' className='ml-auto'>
+                <ButtonContainer>
+                    <span className='mr-2'>
+                        <i className='fas fa-cart-plus' />
+                    </span>
+                    my cart
+                </ButtonContainer>
+            </Link>
+        </NavWrapper>
     );
 };
 
