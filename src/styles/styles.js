@@ -46,18 +46,12 @@ const ProductWrapper = styled.div`
             box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.2);
         }
         .card-footer {
-            background: rgba(247, 247, 247);
+            background: rgba(226, 224, 110);
         }
     }
     .img-container {
         position: relative;
         overflow: hidden;
-    }
-    .card-img-top {
-        transition: all 1s linear;
-    }
-    .img-container:hover .card-img-top {
-        transform: scale(1.2);
     }
     .cart-btn {
         position: absolute;
