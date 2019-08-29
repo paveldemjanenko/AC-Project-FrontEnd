@@ -14,17 +14,16 @@ class Comments extends Component {
   onSubmit = event => {
     event.preventDefault();
     if (this.state.text.length < 10) {
-      console.log("Min length 10 char");
       return;
     }
-
     this.props.addComment(this.props.user, this.props.id, this.state);
+    window.location.reload();
   };
 
   render() {
     return (
       <div>
-        <ul className='list-unstyled'>
+        <ul className='list-unstyled col-6 mx-auto'>
           {this.props.comments.map(item => {
             const dateObj = new Date(item.createdAt);
             const date = `${dateObj.getDate()}/${dateObj.getMonth() + 1}/${dateObj.getFullYear()} ${dateObj.getHours()}:${dateObj.getMinutes()}`;

@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 
 class WrongPageURL extends Component {
     render() {
-        console.log(this.props);
         return (
             <div className='container'>
                 <div className='row'>
