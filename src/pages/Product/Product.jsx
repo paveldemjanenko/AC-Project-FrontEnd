@@ -8,13 +8,37 @@ class Product extends Component {
     this.props.getProductList(this.props.user, this.props.match.params.id);
   }
 
+  // ToDO!
+
+  // state = {
+  //     products: [],
+  //     cart: []
+  // };
+
+  // getItem = (id) => {
+  //     const product = this.state.products.find(item => item.id === id);
+  //     return product;
+  // };
+
+  // addToCart = (id) => {
+  //     let tempProducts = [...this.state.products];
+  //     console.log(this.state.cart);
+  //     const index = tempProducts.indexOf(this.getItem(id));
+  //     const product = tempProducts[index];
+  //     product.inCart = true;
+  //     product.count = 1;
+  //     this.setState(() => {
+  //         return { cart: [...this.state.cart, product] };
+  //     })
+  // };
+
   render() {
     const { id } = this.props.match.params;
     const { product } = this.props;
     if (!product.media) {
         return product;
       }
-
+    
     return (
       <Fragment>
         <ProductWrapper className='container-fluid pt-5'>

@@ -1,29 +1,6 @@
 import React, { Component } from "react";
-// import { Link } from 'react-router-dom';
-// import { ProductWrapper, ButtonContainer } from '../../styles/styles';
 
 class Cart extends Component {
-
-    state = {
-        products: [],
-        cart: []
-    };
-
-    getItem = (id) => {
-        const product = this.state.products.find(item => item.id === id);
-        return product;
-    };
-
-    addToCart = (id) => {
-        let tempProducts = [...this.state.products];
-        const index = tempProducts.indexOf(this.getItem(id));
-        const product = tempProducts[index];
-        product.inCart = true;
-        product.count = 1;
-        this.setState(() => {
-            return { products: tempProducts, cart: [...this.state.cart, product] };
-        })
-    };
 
     render() {
 
@@ -41,8 +18,33 @@ class Cart extends Component {
                     </div>
                     <div className='col-10 mx-auto col-lg-2'>
                         <p className='text-uppercase'>quantity</p>
-                        <button onClick={() => {this.addToCart()}}>Click Me</button>
                     </div>
+                </div>
+                <div className='row'>
+                    <div className='col-10 mx-auto col-lg-2'>
+                    <img src='' style={{width: '5rem', height:'5rem'}} alt='product' className='img-fluid'/>
+                </div>
+                <div className='col-10 mx-auto col-lg-2'>
+                    <span className='d-lg-none'>product : </span>title
+                </div>
+                <div className='col-10 mx-auto col-lg-2'>
+                    <span className='d-lg-none'>price : </span>$ price
+                </div>
+                <div className='col-10 mx-auto col-lg-2 my-2 my-lg-0'>
+                    <div className='d-flex justify-content-center'>
+                        <div>
+                            <span className='btn btn-black mx-1' onClick={() => {}}>
+                                -
+                            </span>
+                            <span className='btn btn-black mx-1'>
+                                count
+                            </span>
+                            <span className='btn btn-black mx-1' onClick={() => {}}>
+                                +
+                            </span>
+                        </div>
+                    </div>
+                </div> 
                 </div>
             </div>
         );
